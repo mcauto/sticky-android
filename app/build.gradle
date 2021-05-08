@@ -1,0 +1,161 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id "io.gitlab.arturbosch.detekt" version "1.16.0"
+}
+
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.deo.android_template"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "21.1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.32"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Detekt
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0"
+    // Memory leak detection
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+}
+
+// detekt
+detekt {
+    // Version of Detekt that will be used. When unspecified the latest detekt
+    // version found will be used. Override to stay on the same version.
+    toolVersion = "1.16.0"
+
+    // The directories where detekt looks for source files.
+    // Defaults to `files("src/main/java", "src/main/kotlin")`.
+    input = files(
+            "src/main/kotlin",
+            "gensrc/main/kotlin"
+    )
+
+    // Builds the AST in parallel. Rules are always executed in parallel.
+    // Can lead to speedups in larger projects. `false` by default.
+    parallel = false
+
+    // Define the detekt configuration(s) you want to use.
+    // Defaults to the default detekt configuration.
+    config = files("../config/detekt.yml")
+
+    // Applies the config files on top of detekt's default config file. `false` by default.
+    buildUponDefaultConfig = false
+
+    // Turns on all the rules. `false` by default.
+    allRules = false
+
+    // Specifying a baseline file. All findings stored in this file in subsequent runs of detekt.
+    baseline = file("../config/baseline.xml")
+
+    // Disables all default detekt rulesets and will only run detekt with custom rules
+    // defined in plugins passed in with `detektPlugins` configuration. `false` by default.
+    disableDefaultRuleSets = false
+
+    // Adds debug output during task execution. `false` by default.
+    debug = false
+
+    // If set to `true` the build does not fail when the
+    // maxIssues count was reached. Defaults to `false`.
+    ignoreFailures = false
+
+    // Android: Don't create tasks for the specified build types (e.g. "release")
+    ignoredBuildTypes = ["release"]
+
+    // Android: Don't create tasks for the specified build flavor (e.g. "production")
+    ignoredFlavors = ["production"]
+
+    // Android: Don't create tasks for the specified build variants (e.g. "productionRelease")
+    ignoredVariants = ["productionRelease"]
+
+    // Specify the base path for file paths in the formatted reports.
+    // If not set, all file paths reported will be absolute file path.
+    basePath = projectDir
+
+    reports {
+        // Enable/Disable XML report (default: true)
+        xml {
+            enabled = true
+            destination = file("build/reports/detekt.xml")
+        }
+        // Enable/Disable HTML report (default: true)
+        html {
+            enabled = true
+            destination = file("build/reports/detekt.html")
+        }
+        // Enable/Disable TXT report (default: true)
+        txt {
+            enabled = true
+            destination = file("build/reports/detekt.txt")
+        }
+        // Enable/Disable SARIF report (default: false)
+        sarif {
+            enabled = true
+            destination = file("build/reports/detekt.sarif")
+        }
+        custom {
+            // The simple class name of your custom report.
+            reportId = "CustomJsonReport"
+            destination = file("build/reports/detekt.json")
+        }
+    }
+}
+tasks.detekt.jvmTarget = "1.8"
+
+// ktlint
+repositories {
+    mavenCentral()
+}
+configurations {
+    ktlint
+}
+dependencies {
+    ktlint "com.pinterest:ktlint:0.41.0"
+}
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "src/**/*.kt", "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
+}
+check.dependsOn ktlint
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}
