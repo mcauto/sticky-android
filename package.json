@@ -1,5 +1,5 @@
 {
-  "name": "android-template",
+  "name": "sticky-android",
   "version": "21.1.0",
   "description": "",
   "main": "index.js",
@@ -31,12 +31,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcauto/android-template.git"
+    "url": "git+https://github.com/mcauto/sticky-android.git"
   },
   "author": "Deo Kim <nexters@kakao.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mcauto/android-template/issues"
+    "url": "https://github.com/mcauto/sticky-android/issues"
   },
-  "homepage": "https://github.com/mcauto/android-template#readme"
+  "homepage": "https://github.com/mcauto/sticky-android#readme"
 }

@@ -1,4 +1,4 @@
-package com.deo.android_template
+package com.deo.sticky
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
