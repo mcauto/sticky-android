@@ -1,22 +1,24 @@
 name: Build android
-on: [push]
+on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-java@v1
-      with:
-        java-version: 11
-    - name: Make Gradle executable
-      run: chmod +x ./gradlew
-    - name: Kotlin Lint with Gradle
-      run: ./gradlew ktlint
-    - name: Kotlin static code analysis with Gradle
-      run: ./gradlew detekt
-    - name: Test Debug APK
-      run: ./gradlew test
-    - name: Build with Gradle
-      run: ./gradlew build
-    - name: Build Debug APK
-      run: ./gradlew assembleDebug
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+      - name: Kotlin Lint with Gradle
+        run: |
+          echo "MAPS_API_KEY=${{ secrets.MAPS_API_KEY }}" > local.properties
+          ./gradlew ktlint
+      - name: Kotlin static code analysis with Gradle
+        run: ./gradlew detekt
+      - name: Test Debug APK
+        run: ./gradlew test
+      - name: Build with Gradle
+        run: ./gradlew build
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
