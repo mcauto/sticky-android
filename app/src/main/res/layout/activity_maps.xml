@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".MapsActivity"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="256dp" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,6 +29,7 @@
             android:layout_marginStart="16dp"
             android:background="@drawable/circle_button"
             android:contentDescription="통계 버튼"
+            android:elevation="24dp"
             android:src="@drawable/ic_statistics"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +57,7 @@
             android:layout_height="48dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/circle_button"
+            android:elevation="24dp"
             android:src="@drawable/ic_setting"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +71,7 @@
         android:layout_width="156dp"
         android:layout_height="56dp"
         android:layout_marginBottom="24dp"
+        android:elevation="24dp"
         android:text="@string/check_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,6 +84,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/circle_button"
+        android:elevation="24dp"
         android:src="@drawable/ic_here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
