@@ -42,7 +42,7 @@
 
     <style name="HeadlineXSmall">
         <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_han_sans_bold</item>
     </style>
 
     <!--TYPOGRAPHY SUBTITLE-->
@@ -89,5 +89,5 @@
         <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
         <item name="android:letterSpacing">-0.03</item>
     </style>
-    
+
 </resources>

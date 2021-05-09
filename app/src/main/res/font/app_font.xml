@@ -19,5 +19,5 @@
     <font
         app:font="@font/spoqa_han_sans_bold"
         app:fontStyle="normal"
-        app:fontWeight="700" />
+        app:fontWeight="1000" />
 </font-family>
