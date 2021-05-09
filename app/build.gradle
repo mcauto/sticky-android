@@ -90,6 +90,7 @@ dependencies {
     // fluent assertions for Java and Android
     androidTestImplementation "com.google.truth:truth:1.1"
 
+
     // Detekt
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0"
     // Memory leak detection
@@ -114,6 +115,13 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:2.31.2-alpha"
     // dagger-hilt test
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.31.2-alpha'
+
+    // google map
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    // google map kotlin extensions
+    implementation 'com.google.maps.android:maps-ktx:2.3.0'
+    implementation 'com.google.maps.android:maps-utils-ktx:2.3.0'
 }
 
 // detekt
@@ -208,6 +216,7 @@ configurations {
     ktlint
 }
 dependencies {
+    // ktlint
     ktlint "com.pinterest:ktlint:0.41.0"
 }
 task ktlint(type: JavaExec, group: "verification") {

@@ -37,20 +37,20 @@ class PlaceDaoTest {
     @Test
     fun `장소 저장하기`() = runBlockingTest {
         assertThat(
-            placeDao.add("강남 12번 출구 커피빈", 37.5092672, 127.026935)
+            placeDao.add("강남 12번 출구 커피빈", 37.4988373, 127.0292686)
         ).isAtLeast(1)
     }
 
     @Test
     fun `반경 내 장소 리스트 불러오기`() = runBlockingTest {
-        assertThat(placeDao.add("강남 12번 출구 커피빈", 37.5092672, 127.026935))
+        assertThat(placeDao.add("강남 12번 출구 커피빈", 37.4988373, 127.0292686))
             .isAtLeast(1)
-        assertThat(placeDao.add("강남 11번 출구 할리스커피", 37.4985584, 127.0278279))
+        assertThat(placeDao.add("강남 11번 출구 할리스커피", 37.4987334, 127.0278077))
             .isAtLeast(1)
-        assertThat(placeDao.add("강남 1번 출구 스타벅", 37.497721, 127.0269938))
+        assertThat(placeDao.add("강남 1번 출구 스타벅스", 37.497853, 127.028587))
             .isAtLeast(1)
         // 강남역
-        assertThat(placeDao.getPlacesWithinRadius(37.4977252, 127.0269938, radius = 1_000))
+        assertThat(placeDao.getPlacesWithinRadius(37.497952, 127.027619, radius = 1_000))
             .hasSize(3)
     }
 }

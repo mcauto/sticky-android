@@ -19,7 +19,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
-        <activity android:name="com.deo.sticky.MainActivity">
+        <activity android:name="com.deo.sticky.features.map.ui.MapsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
