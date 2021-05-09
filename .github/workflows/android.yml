@@ -12,7 +12,7 @@ jobs:
         run: chmod +x ./gradlew
       - name: Kotlin Lint with Gradle
         run: |
-          echo "MAPS_API_KEY=${MAPS_API_KEY}" > local.properties
+          echo "MAPS_API_KEY=${{ secrets.MAPS_API_KEY }}" > local.properties
           ./gradlew ktlint
       - name: Kotlin static code analysis with Gradle
         run: ./gradlew detekt
