@@ -82,6 +82,7 @@
     <color name="backgroundPressed">@color/gray50</color>
     <color name="accentPrimaryPressed">@color/blue500</color>
     <color name="accentSecondaryPressed">@color/blue100</color>
+    <color name="accentTertiaryPressed">#D4E2FC</color>
     <!-- EXTENSIONS CONTENT -->
     <color name="contentDisabled">@color/gray300</color>
     <!-- EXTENSIONS BORDER -->

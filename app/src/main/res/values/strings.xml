@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">sticky</string>
+    <string name="check_in">체크인</string>
 </resources>
