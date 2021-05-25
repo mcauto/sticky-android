@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">sticky</string>
     <string name="check_in">체크인</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="check_in_title">체크인 하는 장소를 입력해주세요</string>
+    <string name="check_in_subtitle">입력한 장소로 위치를 저장합니다</string>
+    <string name="next">다음</string>
+    <string name="button_allow">승인</string>
+    <string name="button_deny">거절</string>
+    <string name="permission_location_rationale">
+        소비한 시간의 장소를 저장하기 위해 위치 정보 권한이 필요합니다.
+    </string>
+    <string name="how_do_you_spend_time">어떤 시간을 보내시나요?</string>
 </resources>
