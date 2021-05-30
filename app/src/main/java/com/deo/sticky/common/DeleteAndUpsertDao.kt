@@ -1,11 +1,11 @@
-package com.deo.sticky.base
+package com.deo.sticky.common
 
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Transaction
 
-interface BaseDao<T> {
+interface DeleteAndUpsertDao<T> {
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upserts(vararg entities: T): List<Long>

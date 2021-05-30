@@ -12,4 +12,5 @@
         소비한 시간의 장소를 저장하기 위해 위치 정보 권한이 필요합니다.
     </string>
     <string name="how_do_you_spend_time">어떤 시간을 보내시나요?</string>
+    <string name="start">시작하기</string>
 </resources>

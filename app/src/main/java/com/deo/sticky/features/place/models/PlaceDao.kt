@@ -3,12 +3,12 @@ package com.deo.sticky.features.place.models
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.SkipQueryVerification
-import com.deo.sticky.base.BaseDao
+import com.deo.sticky.common.DeleteAndUpsertDao
 import com.deo.sticky.features.place.models.entity.Place
 import com.deo.sticky.features.place.models.entity.PlaceWithDistance
 
 @Dao
-interface PlaceDao : BaseDao<Place> {
+interface PlaceDao : DeleteAndUpsertDao<Place> {
     /**
      * 장소 추가하기 (+ 좌표 저장)
      */

@@ -2,11 +2,11 @@ package com.deo.sticky.features.category.models
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.deo.sticky.base.BaseDao
+import com.deo.sticky.common.DeleteAndUpsertDao
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface CategoryDao : BaseDao<Category> {
+interface CategoryDao : DeleteAndUpsertDao<Category> {
     @Query(
         """
         SELECT *

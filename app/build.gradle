@@ -7,6 +7,7 @@ plugins {
     id 'com.google.secrets_gradle_plugin' version '0.6'
 }
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "io.gitlab.arturbosch.detekt"
 apply plugin: "dagger.hilt.android.plugin"
 apply plugin: "kotlin-kapt"
@@ -129,7 +130,7 @@ dependencies {
     implementation 'com.google.maps.android:maps-ktx:2.3.0'
     implementation 'com.google.maps.android:maps-utils-ktx:2.3.0'
 
-    def nav_version = "2.3.5"
+
 
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -153,6 +154,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+}
+
+kapt {
+    correctErrorTypes true
 }
 
 // detekt

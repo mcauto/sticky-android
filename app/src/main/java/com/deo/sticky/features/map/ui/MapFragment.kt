@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.deo.sticky.R
 import com.deo.sticky.databinding.FragmentMapBinding
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -16,12 +16,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
-
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
 
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class MapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var binding: FragmentMapBinding
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,15 +37,14 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             setting.setOnClickListener {
                 Timber.w("설정")
             }
-            checkIn.setOnClickListener { view ->
-                view.findNavController().navigate(R.id.action_mapFragment_to_checkInFragment)
+            checkIn.setOnClickListener {
+                findNavController().navigate(MapFragmentDirections.actionMapFragmentToCheckInFragment())
                 Timber.w("체크인")
             }
             here.setOnClickListener {
                 Timber.w("현재 위치")
             }
         }
-
         return binding.root
     }
 

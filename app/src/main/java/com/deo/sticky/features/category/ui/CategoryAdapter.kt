@@ -1,8 +1,8 @@
 package com.deo.sticky.features.category.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +13,9 @@ import com.deo.sticky.features.category.models.Category
 class CategoryAdapter(
     private val listener: OnItemClickListener
 ) : ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(CATEGORY_COMPARATOR) {
+
+    private var checkPosition = -1
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val binding = ViewholderCategoryItemBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -33,12 +36,12 @@ class CategoryAdapter(
         init {
             binding.apply {
                 root.setOnClickListener {
-                    val position = bindingAdapterPosition
-                    if (position != RecyclerView.NO_POSITION) {
-                        val category = getItem(position)
+                    checkPosition = bindingAdapterPosition
+                    if (checkPosition != RecyclerView.NO_POSITION) {
+                        val category = getItem(checkPosition)
                         listener.onItemClicked(category)
-                        count.isVisible = false
                         background.setBackgroundResource(R.color.accentTertiary)
+                        notifyDataSetChanged()
                     }
                 }
             }
@@ -46,6 +49,15 @@ class CategoryAdapter(
 
         fun bind(category: Category) {
             binding.apply {
+                if (checkPosition == bindingAdapterPosition) {
+                    background.setBackgroundResource(R.color.accentTertiary)
+                    check.visibility = View.VISIBLE
+                    count.visibility = View.INVISIBLE
+                } else {
+                    background.setBackgroundResource(R.color.white)
+                    count.visibility = View.VISIBLE
+                    check.visibility = View.INVISIBLE
+                }
                 imageView.setImageResource(category.imageResourceId)
                 imageViewBackground.setBackgroundResource(category.backgroundResourceId)
                 name.text = category.name

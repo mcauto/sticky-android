@@ -1,17 +1,21 @@
 package com.deo.sticky.features.category.models
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.deo.sticky.R
 
 @Entity(tableName = "categories")
 data class Category(
     @PrimaryKey(autoGenerate = true)
-    val id: Long? = null,
-    val name: String? = null,
-    val image: String? = null,
-    val count: Long? = null
+    var id: Long? = null,
+    var name: String? = null,
+    var image: String? = null,
+    var count: Long? = null,
+    @Ignore var isChecked: Boolean = false,
 ) {
+    constructor() : this(null, null, null, null, false)
+
     val imageResourceId: Int
         get() = when (image) {
             "ic_office" -> R.drawable.ic_office
