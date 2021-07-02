@@ -1,4 +1,4 @@
-package com.deo.sticky.features.place.models.entity
+package com.deo.sticky.features.checkin.place.models.entity
 
 import androidx.room.Embedded
 import androidx.room.Entity

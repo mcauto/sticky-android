@@ -1,9 +1,9 @@
-package com.deo.sticky.features.checkin.ui
+package com.deo.sticky.features.checkin
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.deo.sticky.features.category.ui.CategoryFragment
-import com.deo.sticky.features.place.ui.PlaceFragment
+import com.deo.sticky.features.checkin.category.ui.CategoryFragment
+import com.deo.sticky.features.checkin.place.ui.PlaceFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 const val NUM_PAGES = 2
@@ -11,15 +11,16 @@ const val NUM_PAGES = 2
 @ExperimentalCoroutinesApi
 class FragmentViewPager constructor(
     parent: Fragment,
-    private val viewModel: CheckInViewModel,
+    private val categoryViewModel: CategoryViewModel,
+    private val placeViewModel: PlaceViewModel
 ) :
     FragmentStateAdapter(parent) {
     override fun getItemCount(): Int = NUM_PAGES
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> PlaceFragment(viewModel)
-            1 -> CategoryFragment(viewModel)
+            0 -> PlaceFragment(placeViewModel)
+            1 -> CategoryFragment(categoryViewModel)
             else -> throw IllegalArgumentException()
         }
     }

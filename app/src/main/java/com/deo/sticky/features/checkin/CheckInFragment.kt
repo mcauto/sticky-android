@@ -1,30 +1,32 @@
-package com.deo.sticky.features.checkin.ui
+package com.deo.sticky.features.checkin
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.deo.sticky.R
+import com.deo.sticky.base.BindableFragment
 import com.deo.sticky.databinding.FragmentCheckInBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
 @ExperimentalCoroutinesApi
-class CheckInFragment : Fragment(R.layout.fragment_check_in) {
-    private val checkInViewModel: CheckInViewModel by viewModels()
-    private lateinit var binding: FragmentCheckInBinding
+internal class CheckInFragment :
+    BindableFragment<FragmentCheckInBinding>(R.layout.fragment_check_in) {
+    private val viewPagerViewModel: ViewPagerViewModel by viewModels()
+    private val categoryViewModel: CategoryViewModel by viewModels()
+    private val placeViewModel: PlaceViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentCheckInBinding.bind(view)
+        binding.apply {
+            viewPagerViewModel = this.viewPagerViewModel
+        }
         initBack(binding)
         initViewPager(binding)
-        binding.apply {
-            checkinViewModel = this.checkinViewModel
-        }
     }
 
     fun next() {
@@ -44,26 +46,23 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
 
     private fun initViewPager(binding: FragmentCheckInBinding) {
         binding.progress.apply {
-            progress = (binding.viewPager.currentItem + 1) * (max / NUM_PAGES)
-        }
-
-        val callback = object : ViewPager2.OnPageChangeCallback() {
-            @SuppressLint("SetTextI18n")
-            override fun onPageScrollStateChanged(state: Int) {
-                val page = binding.viewPager.currentItem + 1
-                binding.progress.apply {
-                    progress = page * (max / NUM_PAGES)
-                }
-                binding.progressLabel.text = "$page/$NUM_PAGES"
-                super.onPageScrollStateChanged(state)
-            }
+            viewPagerViewModel.onChangePage(1, NUM_PAGES)
         }
         binding.viewPager.apply {
             isUserInputEnabled = false
             adapter = FragmentViewPager(
-                this@CheckInFragment, checkInViewModel
+                this@CheckInFragment,
+                categoryViewModel,
+                placeViewModel
             )
-            registerOnPageChangeCallback(callback)
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                @SuppressLint("SetTextI18n")
+                override fun onPageScrollStateChanged(state: Int) {
+                    val page = binding.viewPager.currentItem + 1
+                    viewPagerViewModel.onChangePage(page, NUM_PAGES)
+                    super.onPageScrollStateChanged(state)
+                }
+            })
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.deo.sticky.di
 
-import com.deo.sticky.features.category.models.CategoryDao
-import com.deo.sticky.features.place.models.PlaceDao
+import com.deo.sticky.features.checkin.category.models.CategoryDao
+import com.deo.sticky.features.checkin.place.models.PlaceDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,8 +1,8 @@
-package com.deo.sticky.features.category.models
+package com.deo.sticky.features.checkin.category.models
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.deo.sticky.common.DeleteAndUpsertDao
+import com.deo.sticky.base.DeleteAndUpsertDao
 import kotlinx.coroutines.flow.Flow
 
 @Dao

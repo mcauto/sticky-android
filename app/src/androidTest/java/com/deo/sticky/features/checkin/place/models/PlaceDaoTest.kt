@@ -1,4 +1,4 @@
-package com.deo.sticky.features.place.models
+package com.deo.sticky.features.checkin.place.models
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest

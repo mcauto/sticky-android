@@ -19,17 +19,17 @@
     </fragment>
     <fragment
         android:id="@+id/checkInFragment"
-        android:name="com.deo.sticky.features.checkin.ui.CheckInFragment"
+        android:name="com.deo.sticky.features.checkin.CheckInFragment"
         android:label="CheckInFragment"
         tools:layout="@layout/fragment_check_in" />
     <fragment
         android:id="@+id/placeFragment"
-        android:name="com.deo.sticky.features.place.ui.PlaceFragment"
+        android:name="com.deo.sticky.features.checkin.place.ui.PlaceFragment"
         android:label="PlaceFragment"
         tools:layout="@layout/fragment_check_in_place" />
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.deo.sticky.features.category.ui.CategoryFragment"
+        android:name="com.deo.sticky.features.checkin.category.ui.CategoryFragment"
         android:label="CategoryFragment"
         tools:layout="@layout/fragment_check_in_category" />
 

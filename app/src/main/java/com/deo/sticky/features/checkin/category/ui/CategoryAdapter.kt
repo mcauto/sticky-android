@@ -1,4 +1,4 @@
-package com.deo.sticky.features.category.ui
+package com.deo.sticky.features.checkin.category.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.deo.sticky.R
 import com.deo.sticky.databinding.ViewholderCategoryItemBinding
-import com.deo.sticky.features.category.models.Category
+import com.deo.sticky.features.checkin.category.models.Category
 
 class CategoryAdapter(
     private val listener: OnItemClickListener

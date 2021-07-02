@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="checkinViewModel"
-            type="com.deo.sticky.features.checkin.ui.CheckInViewModel" />
+            name="placeViewModel"
+            type="com.deo.sticky.features.checkin.PlaceViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,6 @@
             android:background="@drawable/check_in_edit_text"
             android:hint="강남 스타벅스"
             android:paddingStart="16dp"
-            android:text="@={checkinViewModel.placeName}"
             android:textCursorDrawable="@drawable/cursor_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +64,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:enabled="@{!checkinViewModel.placeName.empty}"
+            android:enabled="@{!placeViewModel.placeName.empty}"
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

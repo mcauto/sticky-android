@@ -1,4 +1,4 @@
-package com.deo.sticky.common
+package com.deo.sticky.base
 
 import androidx.room.Delete
 import androidx.room.Insert

@@ -1,11 +1,11 @@
-package com.deo.sticky.features.place.models
+package com.deo.sticky.features.checkin.place.models
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.SkipQueryVerification
-import com.deo.sticky.common.DeleteAndUpsertDao
-import com.deo.sticky.features.place.models.entity.Place
-import com.deo.sticky.features.place.models.entity.PlaceWithDistance
+import com.deo.sticky.base.DeleteAndUpsertDao
+import com.deo.sticky.features.checkin.place.models.entity.Place
+import com.deo.sticky.features.checkin.place.models.entity.PlaceWithDistance
 
 @Dao
 interface PlaceDao : DeleteAndUpsertDao<Place> {

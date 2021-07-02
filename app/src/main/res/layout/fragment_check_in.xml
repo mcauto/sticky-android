@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="checkinViewModel"
-            type="com.deo.sticky.features.checkin.ui.CheckInViewModel" />
+            name="viewPagerViewModel"
+            type="com.deo.sticky.features.checkin.ViewPagerViewModel" />
     </data>
 
     <LinearLayout
@@ -42,7 +42,7 @@
                 style="@style/SubtitleLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1/2"
+                android:text="@{viewPagerViewModel.currentPage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,8 +56,8 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:max="100"
-            android:progress="0"
+            android:max="@{viewPagerViewModel.max}"
+            android:progress="@{viewPagerViewModel.progress}"
             android:progressDrawable="@drawable/progress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
