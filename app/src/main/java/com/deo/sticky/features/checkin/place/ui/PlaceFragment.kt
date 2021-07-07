@@ -3,21 +3,22 @@ package com.deo.sticky.features.checkin.place.ui
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.activityViewModels
 import com.deo.sticky.R
 import com.deo.sticky.base.BindableFragment
 import com.deo.sticky.databinding.FragmentCheckInPlaceBinding
-import com.deo.sticky.features.checkin.CheckInFragment
 import com.deo.sticky.features.checkin.PlaceViewModel
+import com.deo.sticky.features.checkin.ViewPagerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
 
 @AndroidEntryPoint
 @ExperimentalCoroutinesApi
-internal class PlaceFragment constructor(
-    private val _placeViewModel: PlaceViewModel
-) : BindableFragment<FragmentCheckInPlaceBinding>(R.layout.fragment_check_in_place) {
-
+internal class PlaceFragment :
+    BindableFragment<FragmentCheckInPlaceBinding>(R.layout.fragment_check_in_place) {
+    private val _placeViewModel: PlaceViewModel by activityViewModels()
+    private val _viewPagerViewModel: ViewPagerViewModel by activityViewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
@@ -29,10 +30,9 @@ internal class PlaceFragment constructor(
                 _placeViewModel.onPlaceName("$text")
             }
             next.setOnClickListener {
-                Timber.w("장소명: ${_placeViewModel.placeName}")
-                val parent = parentFragment as CheckInFragment
+                Timber.w("장소명: ${_placeViewModel.placeName.value}")
                 editText.clearFocus()
-                parent.next()
+                _viewPagerViewModel.onClickNext()
             }
         }
     }

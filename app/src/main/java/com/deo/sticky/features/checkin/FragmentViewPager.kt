@@ -6,21 +6,17 @@ import com.deo.sticky.features.checkin.category.ui.CategoryFragment
 import com.deo.sticky.features.checkin.place.ui.PlaceFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-const val NUM_PAGES = 2
-
 @ExperimentalCoroutinesApi
 class FragmentViewPager constructor(
     parent: Fragment,
-    private val categoryViewModel: CategoryViewModel,
-    private val placeViewModel: PlaceViewModel
-) :
-    FragmentStateAdapter(parent) {
-    override fun getItemCount(): Int = NUM_PAGES
+    private val totalPage: Int
+) : FragmentStateAdapter(parent) {
+    override fun getItemCount(): Int = totalPage
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> PlaceFragment(placeViewModel)
-            1 -> CategoryFragment(categoryViewModel)
+            0 -> PlaceFragment()
+            1 -> CategoryFragment()
             else -> throw IllegalArgumentException()
         }
     }
