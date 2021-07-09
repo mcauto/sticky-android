@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--TYPOGRAPHY DISPLAY-->
-    <style name="DisplayLarge">
+    <style name="DisplayLarge" parent="android:TextAppearance">
         <item name="android:textSize">96sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
-    <style name="DisplayMedium">
+    <style name="DisplayMedium" parent="android:TextAppearance">
         <item name="android:textSize">64sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
-    <style name="DisplaySmall">
+    <style name="DisplaySmall" parent="android:TextAppearance">
         <item name="android:textSize">48sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
-    <style name="DisplayXSmall">
+    <style name="DisplayXSmall" parent="android:TextAppearance">
         <item name="android:textSize">32sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.02</item>
     </style>
     <!--TYPOGRAPHY HEADLINE-->
-    <style name="HeadlineLarge">
+    <style name="HeadlineLarge" parent="android:TextAppearance">
         <item name="android:textSize">40sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_bold</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
-    <style name="HeadlineMedium">
+    <style name="HeadlineMedium" parent="android:TextAppearance">
         <item name="android:textSize">32sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
-    <style name="HeadlineSmall">
+    <style name="HeadlineSmall" parent="android:TextAppearance">
         <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
-    <style name="HeadlineXSmall">
+    <style name="HeadlineXSmall" parent="android:TextAppearance">
         <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
     <!--TYPOGRAPHY SUBTITLE-->
-    <style name="SubtitleLarge">
+    <style name="SubtitleLarge" parent="android:TextAppearance">
         <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
-    <style name="SubtitleMedium">
+    <style name="SubtitleMedium" parent="android:TextAppearance">
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
-    <style name="SubtitleSmall">
+    <style name="SubtitleSmall" parent="android:TextAppearance">
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
 
-    <style name="SubtitleXSmall">
+    <style name="SubtitleXSmall" parent="android:TextAppearance">
         <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
     </style>
     <!--TYPOGRAPHY BODY-->
-    <style name="BodyLarge">
+    <style name="BodyLarge" parent="android:TextAppearance">
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.03</item>
     </style>
 
-    <style name="BodyMedium">
+    <style name="BodyMedium" parent="android:TextAppearance">
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.03</item>
     </style>
 
-    <style name="BodySmall">
+    <style name="BodySmall" parent="android:TextAppearance">
         <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.03</item>
     </style>
 
-    <style name="BodyXSmall">
+    <style name="BodyXSmall" parent="android:TextAppearance">
         <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:letterSpacing">-0.03</item>
     </style>
 

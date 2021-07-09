@@ -11,7 +11,7 @@
     </style>
     <!-- RECT -->
     <style name="Button.Rect.Large.Primary" parent="Widget.AppCompat.Button">
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:background">@drawable/primary_rect_button</item>
         <item name="android:focusable">true</item>
@@ -21,7 +21,7 @@
     </style>
 
     <style name="Button.Rect.Large.Secondary" parent="Widget.AppCompat.Button">
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:background">@drawable/secondary_rect_button</item>
         <item name="android:focusable">true</item>
@@ -31,7 +31,7 @@
     </style>
     <!-- PILL -->
     <style name="Button.Pill.Primary" parent="Widget.AppCompat.Button">
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:background">@drawable/primary_pill_button</item>
         <item name="android:focusable">true</item>
@@ -41,7 +41,7 @@
     </style>
 
     <style name="Button.Pill.Secondary" parent="Widget.AppCompat.Button">
-        <item name="android:fontFamily">@font/spoqa_han_sans_regular</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:background">@drawable/secondary_pill_button</item>
         <item name="android:focusable">true</item>
