@@ -17,12 +17,16 @@ import kotlinx.coroutines.launch
 class PlaceViewModel @Inject constructor(
     private val placeDao: PlaceDao
 ) : ViewModel(), LifecycleObserver {
-    private val _placeName = MutableLiveData<String>()
+    private val _placeName = MutableLiveData("")
     val placeName: LiveData<String>
         get() = _placeName
 
     fun onPlaceName(placeName: String) = viewModelScope.launch {
         _placeName.value = placeName
+    }
+
+    fun initialize() = viewModelScope.launch {
+        _placeName.value = ""
     }
 }
 
@@ -37,6 +41,10 @@ class CategoryViewModel @Inject constructor(
 
     fun onSelectedCategory(category: Category) = viewModelScope.launch {
         _selectedCategory.value = category
+    }
+
+    fun initialize() = viewModelScope.launch {
+        _selectedCategory.value = Category()
     }
 }
 

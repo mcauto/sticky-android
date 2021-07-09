@@ -20,6 +20,7 @@ internal class CheckInFragment :
     BindableFragment<FragmentCheckInBinding>(R.layout.fragment_check_in) {
     private val _viewPagerViewModel: ViewPagerViewModel by activityViewModels()
     private val _checkInViewModel: CheckInViewModel by activityViewModels()
+    private val _placeViewModel: PlaceViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,6 +29,7 @@ internal class CheckInFragment :
             viewPagerViewModel = _viewPagerViewModel
             back.setOnClickListener {
                 _viewPagerViewModel.onClickBack()
+                _placeViewModel.initialize()
                 Timber.d("뒤로가기")
             }
             progress.apply {

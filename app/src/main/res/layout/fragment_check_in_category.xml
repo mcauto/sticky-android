@@ -52,7 +52,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:enabled="@{categoryViewModel.selectedCategory!=null}"
+                android:enabled="@{categoryViewModel.selectedCategory.id != null}"
                 android:text="@string/start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

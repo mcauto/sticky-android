@@ -21,7 +21,6 @@ internal class CategoryFragment :
     private val _checkInViewModel: CheckInViewModel by activityViewModels()
     private val listener = object : CategoryAdapter.OnItemClickListener {
         override fun onItemClicked(category: Category) {
-            // check 하기
             _categoryViewModel.onSelectedCategory(category)
         }
     }

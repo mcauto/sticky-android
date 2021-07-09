@@ -13,4 +13,6 @@
     </string>
     <string name="how_do_you_spend_time">어떤 시간을 보내시나요?</string>
     <string name="start">시작하기</string>
+    <string name="cancel">취소</string>
+    <string name="check_out">체크아웃</string>
 </resources>
