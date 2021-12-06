@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TYPOGRAPHY DISPLAY-->
+    <style name="DisplayLarge" parent="android:TextAppearance">
+        <item name="android:textSize">96sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="DisplayMedium" parent="android:TextAppearance">
+        <item name="android:textSize">64sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="DisplaySmall" parent="android:TextAppearance">
+        <item name="android:textSize">48sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="DisplayXSmall" parent="android:TextAppearance">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+    <!--TYPOGRAPHY HEADLINE-->
+    <style name="HeadlineLarge" parent="android:TextAppearance">
+        <item name="android:textSize">40sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <style name="HeadlineMedium" parent="android:TextAppearance">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <style name="HeadlineSmall" parent="android:TextAppearance">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <style name="HeadlineXSmall" parent="android:TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <!--TYPOGRAPHY SUBTITLE-->
+    <style name="SubtitleLarge" parent="android:TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <style name="SubtitleMedium" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <style name="SubtitleSmall" parent="android:TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+
+    <style name="SubtitleXSmall" parent="android:TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+    </style>
+    <!--TYPOGRAPHY BODY-->
+    <style name="BodyLarge" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <style name="BodyMedium" parent="android:TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <style name="BodySmall" parent="android:TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <style name="BodyXSmall" parent="android:TextAppearance">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/spoqa_hans_sans_neo_regular</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_sticky"
+    app:startDestination="@id/mapFragment">
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.deo.sticky.features.map.ui.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_mapFragment_to_checkInFragment"
+            app:destination="@id/checkInFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkInFragment"
+        android:name="com.deo.sticky.features.checkin.CheckInFragment"
+        android:label="CheckInFragment"
+        tools:layout="@layout/fragment_check_in" />
+    <fragment
+        android:id="@+id/placeFragment"
+        android:name="com.deo.sticky.features.checkin.place.ui.PlaceFragment"
+        android:label="PlaceFragment"
+        tools:layout="@layout/fragment_check_in_place" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.deo.sticky.features.checkin.category.ui.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_check_in_category" />
+
+</navigation>

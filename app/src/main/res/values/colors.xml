@@ -1,10 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- PRIMITIVES -->
     <color name="black">#FF000000</color>
+    <color name="black0.03">#4D000000</color>
+    <color name="black0.08">#14000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray50">#FFF6F6F6</color>
+    <color name="blue100">#FFD4E2FC</color>
+    <color name="blue200">#FFA0BFF8</color>
+    <color name="blue300">#FF5B91F5</color>
+    <color name="blue400">#FF276EF1</color>
+    <color name="blue50">#FFEFF3FE</color>
+    <color name="blue500">#FF1E54B7</color>
+    <color name="blue600">#FF174291</color>
+    <color name="blue700">#FF102C60</color>
+    <color name="gray100">#FFEEEEEE</color>
+    <color name="gray200">#FFE2E2E2</color>
+    <color name="gray300">#FFD5D5D5</color>
+    <color name="gray400">#FFB2B2B2</color>
+    <color name="gray500">#FF7E7E7E</color>
+    <color name="gray600">#FF666666</color>
+    <color name="gray700">#FF4D4D4D</color>
+    <color name="gray800">#FF333333</color>
+    <color name="gray900">#FF181818</color>
+    <color name="green100">#FFADDEC9</color>
+    <color name="green200">#FF66D19E</color>
+    <color name="green300">#FF06C167</color>
+    <color name="green400">#FF05944F</color>
+    <color name="green50">#FFE6F2ED</color>
+    <color name="green500">#FF03703C</color>
+    <color name="green600">#FF03582F</color>
+    <color name="green700">#FF10462D</color>
+    <color name="orange100">#FFFFE1D6</color>
+    <color name="orange200">#FFFABDA5</color>
+    <color name="orange300">#FFFA9269</color>
+    <color name="orange400">#FFFF6937</color>
+    <color name="orange50">#FFFFF3EF</color>
+    <color name="orange500">#FFC14F29</color>
+    <color name="orange600">#FF9A3F21</color>
+    <color name="orange700">#FF672A16</color>
+    <color name="purple100">#FFE3DDF2</color>
+    <color name="purple200">#FFC1B5E3</color>
+    <color name="purple300">#FF957FCE</color>
+    <color name="purple400">#FF7356BF</color>
+    <color name="purple50">#FFF4F1FA</color>
+    <color name="purple500">#FF574191</color>
+    <color name="purple600">#FF453473</color>
+    <color name="purple700">#FF2E224C</color>
+    <color name="red100">#FFFED7D2</color>
+    <color name="red200">#FFF1998E</color>
+    <color name="red300">#FFE85C4A</color>
+    <color name="red400">#FFE11900</color>
+    <color name="red50">#FFFFEFED</color>
+    <color name="red500">#FFAB1300</color>
+    <color name="red600">#FF870F00</color>
+    <color name="red700">#FF5A0A00</color>
+    <color name="yellow100">#FFFFF2D9</color>
+    <color name="yellow200">#FFFFE3AC</color>
+    <color name="yellow300">#FFFFCF70</color>
+    <color name="yellow400">#FFFFC043</color>
+    <color name="yellow50">#FFFFFAF0</color>
+    <color name="yellow500">#FFBC8B2C</color>
+    <color name="yellow600">#FF997328</color>
+    <color name="yellow700">#FF674D1B</color>
+    <!-- CORE BACKGROUND -->
+    <color name="backgroundPrimary">@color/white</color>
+    <color name="backgroundInversePrimary">@color/black</color>
+    <color name="backgroundSecondary">@color/gray50</color>
+    <color name="backgroundInverseSecondary">@color/gray800</color>
+    <color name="backgroundTertiary">@color/gray100</color>
+    <!-- CORE CONTENT -->
+    <color name="contentPrimary">@color/gray900</color>
+    <color name="contentSecondary">@color/gray700</color>
+    <color name="contentTertiary">@color/gray500</color>
+    <color name="contentInversePrimary">@color/white</color>
+    <!-- CORE BORDER -->
+    <color name="borderOpaque">@color/gray200</color>
+    <color name="borderTransparent">@color/black0.08</color>
+    <!-- EXTENSTIONS BACKGROUND -->
+    <color name="backgroundDisabled">@color/gray50</color>
+    <color name="backgroundPressed">@color/gray50</color>
+    <color name="accentPrimaryPressed">@color/blue500</color>
+    <color name="accentSecondaryPressed">@color/blue100</color>
+    <color name="accentPrimaryDisabled">@color/blue200</color>
+    <color name="accentTertiaryPressed">#D4E2FC</color>
+    <!-- EXTENSIONS CONTENT -->
+    <color name="contentDisabled">@color/gray300</color>
+    <!-- EXTENSIONS BORDER -->
+    <color name="borderDisabled">@color/gray100</color>
+    <!-- EXTENSIONS OVERLAY -->
+    <color name="overlay30">@color/black0.03</color>
+    <!-- SUPPORT -->
+    <color name="accentPrimary">@color/blue400</color>
+    <color name="negativePrimary">@color/red400</color>
+    <color name="positivePrimary">@color/green400</color>
+    <color name="accentSecondary">@color/blue200</color>
+    <color name="negativeSecondary">@color/red200</color>
+    <color name="positiveSecondary">@color/green200</color>
+    <color name="accentTertiary">@color/blue50</color>
+    <color name="negativeTertiary">@color/red50</color>
+    <color name="positiveTertiary">@color/green50</color>
+    <color name="accentInversePrimary">@color/blue300</color>
+    <color name="focus">@color/gray900</color>
 </resources>
