@@ -9,6 +9,11 @@ import com.deo.sticky.features.checkin.place.models.entity.PlaceWithDistance
 
 @Dao
 interface PlaceDao : DeleteAndUpsertDao<Place> {
+
+//    @Query("""DELETE FROM places""")
+//    @SkipQueryVerification
+//    suspend fun clear()
+
     /**
      * 장소 추가하기 (+ 좌표 저장)
      */

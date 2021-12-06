@@ -19,6 +19,7 @@ internal class PlaceFragment :
     BindableFragment<FragmentCheckInPlaceBinding>(R.layout.fragment_check_in_place) {
     private val _placeViewModel: PlaceViewModel by activityViewModels()
     private val _viewPagerViewModel: ViewPagerViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {

@@ -12,7 +12,9 @@ import androidx.room.PrimaryKey
  * longitude: 경도
  * geometry: spatialite의 geometry
  */
-@Entity(tableName = "places")
+@Entity(
+    tableName = "places"
+)
 data class Place(
     @PrimaryKey(autoGenerate = true)
     val id: Long? = null,

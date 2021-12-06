@@ -9,9 +9,11 @@ import com.deo.sticky.base.BindableFragment
 import com.deo.sticky.databinding.FragmentCheckInCategoryBinding
 import com.deo.sticky.features.checkin.CategoryViewModel
 import com.deo.sticky.features.checkin.CheckInViewModel
+import com.deo.sticky.features.checkin.PlaceViewModel
 import com.deo.sticky.features.checkin.category.models.Category
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import timber.log.Timber
 
 @AndroidEntryPoint
 @ExperimentalCoroutinesApi
@@ -19,6 +21,7 @@ internal class CategoryFragment :
     BindableFragment<FragmentCheckInCategoryBinding>(R.layout.fragment_check_in_category) {
     private val _categoryViewModel: CategoryViewModel by activityViewModels()
     private val _checkInViewModel: CheckInViewModel by activityViewModels()
+    private val _placeViewModel: PlaceViewModel by activityViewModels()
     private val listener = object : CategoryAdapter.OnItemClickListener {
         override fun onItemClicked(category: Category) {
             _categoryViewModel.onSelectedCategory(category)
@@ -36,7 +39,24 @@ internal class CategoryFragment :
                 setHasFixedSize(true)
             }
             start.setOnClickListener {
-                _checkInViewModel.onCheckIn()
+                val placeName = _placeViewModel.placeName.value
+                val latitude = _placeViewModel.latitude.value
+                val longitude = _placeViewModel.longitude.value
+                val categoryId = _categoryViewModel.selectedCategory.value?.id
+                if (placeName == null ||
+                    latitude == null ||
+                    longitude == null ||
+                    categoryId == null
+                ) {
+                    Timber.e("필수 정보가 없습니다.")
+                } else {
+                    _checkInViewModel.onCheckIn(
+                        placeName = placeName,
+                        longitude = longitude,
+                        latitude = latitude,
+                        categoryId = categoryId
+                    )
+                }
             }
         }
 

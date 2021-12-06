@@ -114,6 +114,7 @@
             android:layout_height="252dp"
             android:background="@drawable/bottom_sheet_background"
             android:elevation="24dp"
+            android:visibility="gone"
             app:is_visible="@{checkInViewModel.isCheckIn}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -219,7 +220,7 @@
                     android:layout_marginBottom="8dp"
                     android:gravity="center_vertical|end"
                     android:letterSpacing="-0.02"
-                    android:text="4월 1일 오후 3시 23분"
+                    android:text="@{}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -232,12 +233,13 @@
                 android:layout_height="56dp"
                 android:layout_margin="16dp"
                 android:stateListAnimator="@null"
-                android:text="체크아웃"
+                android:text="@string/check_out"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

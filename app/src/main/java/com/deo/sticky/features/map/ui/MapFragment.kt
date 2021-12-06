@@ -2,7 +2,6 @@ package com.deo.sticky.features.map.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -62,7 +61,9 @@ internal class MapFragment :
             placeViewModel = _placeViewModel
             categoryViewModel = _categoryViewModel
         }
+
         initButtons()
+
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.fragment_map) as? SupportMapFragment
         mapFragment?.getMapAsync { googleMap ->
@@ -70,7 +71,7 @@ internal class MapFragment :
             // MapFragment는 FragmentContainerView이므로 fragment의 컨테이너로서 동작
             // com.google.android.gms.maps.SupportMapFragment으로서 동작
             val gangNamCoffeeBean = LatLng(37.4988373, 127.0292686)
-            val gangNamStation = LatLng(37.497952, 127.027619)
+
             googleMap.apply {
                 setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
@@ -82,39 +83,44 @@ internal class MapFragment :
                         .position(gangNamCoffeeBean)
                         .title("강남 12번 출구 커피빈")
                 )
-                addMarker(
-                    MarkerOptions()
-                        .position(gangNamStation)
-                        .title("강남역")
-                )
-//                moveCamera(CameraUpdateFactory.newLatLngZoom(gangNamCoffeeBean, 18f))
             }
             getLocationPermission()
             updateLocationUI()
-            getDeviceLocation()
+            focusDevicePosition()
         }
+
         setFragmentResultListener(RequestKey.checkIn) { _, _ ->
             val category = _categoryViewModel.selectedCategory.value?.name
             val placeName = _placeViewModel.placeName.value
-            Timber.w("checkIn: $category, $placeName")
+            val longitude = _placeViewModel.longitude.value
+            val latitude = _placeViewModel.latitude.value
+            Timber.w("checkIn: $category, $placeName, $longitude, $latitude")
+            val timerAction: () -> Unit = {
+                binding.recordingTime.text = _checkInViewModel.hhmmss.value
+            }
+            _checkInViewModel.timerStart(timerAction)
         }
     }
 
-    // 화면의 버튼 초기 설정
+    /** 화면의 버튼 초기 설정 */
     private fun initButtons() {
         binding.apply {
             statistic.setOnClickListener {
                 Timber.w("통계")
+                val latitude = lastKnownLocation!!.latitude
+                val longitude = lastKnownLocation!!.longitude
+                _placeViewModel.getPlacesWithRadius(latitude = latitude, longitude = longitude)
             }
             setting.setOnClickListener {
                 Timber.w("설정")
             }
             checkIn.setOnClickListener {
+                focusDevicePosition()
                 findNavController().navigate(MapFragmentDirections.actionMapFragmentToCheckInFragment())
                 Timber.w("체크인")
             }
             here.setOnClickListener {
-                getDeviceLocation()
+                focusDevicePosition()
             }
             checkOut.setOnClickListener {
                 val dialog = CheckOutDialogFragment()
@@ -123,31 +129,24 @@ internal class MapFragment :
         }
     }
 
-    private fun checkMapPermission(context: Context): Boolean {
-        val hasFineLocationPermission = ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
-        val hasCoarseLocationPermission = ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        )
-        return hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
-            hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED
-    }
-
+    /** 위치 결과가 비동기로 호출되어 멤버변수에 latitude와 langitude가 등록됨 */
     @SuppressLint("MissingPermission")
-    private fun getDeviceLocation() {
-        if (!locationPermissionGranted)
+    private fun focusDevicePosition() {
+        if (!locationPermissionGranted) {
+            Timber.d("위치정보 권한이 없습니다.")
             return
-        val locationResult = locationClient.lastLocation
-        locationResult.addOnCompleteListener { task ->
+        }
+        locationClient.lastLocation.addOnCompleteListener { task ->
             if (!task.isSuccessful || task.result == null) {
                 Timber.e("현재 위치를 찾을 수 없습니다.")
             } else {
                 lastKnownLocation = task.result
                 val latitude = lastKnownLocation!!.latitude
                 val longitude = lastKnownLocation!!.longitude
+                _placeViewModel.apply {
+                    onLatitude(latitude)
+                    onLongitude(longitude)
+                }
                 googleMap.moveCamera(
                     CameraUpdateFactory.newLatLngZoom(
                         LatLng(latitude, longitude),
@@ -178,6 +177,7 @@ internal class MapFragment :
         updateLocationUI()
     }
 
+    @SuppressLint("MissingPermission")
     private fun updateLocationUI() {
         try {
             googleMap.apply {

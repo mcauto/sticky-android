@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7784b9893f04bf23a7d812760465267d",
+    "identityHash": "ac80553d1827bdeec4291209fb879a7d",
     "entities": [
       {
         "tableName": "places",
@@ -85,12 +85,121 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "accumulates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `placeId` INTEGER NOT NULL, `categoryId` INTEGER NOT NULL, `start` INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP, `end` INTEGER, `value` INTEGER, `memoThumbnail` TEXT, `memoTitle` TEXT, `memoContents` TEXT, FOREIGN KEY(`placeId`) REFERENCES `places`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`categoryId`) REFERENCES `categories`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "placeId",
+            "columnName": "placeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryId",
+            "columnName": "categoryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "start",
+            "columnName": "start",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "CURRENT_TIMESTAMP"
+          },
+          {
+            "fieldPath": "end",
+            "columnName": "end",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "memoThumbnail",
+            "columnName": "memoThumbnail",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "memoTitle",
+            "columnName": "memoTitle",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "memoContents",
+            "columnName": "memoContents",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_accumulates_placeId",
+            "unique": false,
+            "columnNames": [
+              "placeId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_accumulates_placeId` ON `${TABLE_NAME}` (`placeId`)"
+          },
+          {
+            "name": "index_accumulates_categoryId",
+            "unique": false,
+            "columnNames": [
+              "categoryId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_accumulates_categoryId` ON `${TABLE_NAME}` (`categoryId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "places",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "placeId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "categories",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "categoryId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7784b9893f04bf23a7d812760465267d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ac80553d1827bdeec4291209fb879a7d')"
     ]
   }
 }

@@ -15,6 +15,9 @@ import com.deo.sticky.features.checkin.CategoryViewModel
 import com.deo.sticky.features.checkin.CheckInViewModel
 import com.deo.sticky.features.checkin.PlaceViewModel
 
+/**
+ * 체크아웃 바텀시트 클릭 시 호출되는 다이얼로그
+ */
 class CheckOutDialogFragment : DialogFragment() {
     private val _checkInViewModel: CheckInViewModel by activityViewModels()
     private val _placeViewModel: PlaceViewModel by activityViewModels()
@@ -23,18 +26,20 @@ class CheckOutDialogFragment : DialogFragment() {
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            val builder = AlertDialog.Builder(it)
             val inflater = requireActivity().layoutInflater
             val view = inflater.inflate(R.layout.dialog_checkout, null)
             view.findViewById<Button>(R.id.cancel).setOnClickListener {
                 dialog?.cancel()
             }
             view.findViewById<Button>(R.id.ok).setOnClickListener {
+                _checkInViewModel.timerStop()
                 _checkInViewModel.onCheckOut()
                 _placeViewModel.initialize()
                 _categoryViewModel.initialize()
+
                 dialog?.dismiss()
             }
+            val builder = AlertDialog.Builder(it)
             builder.setView(view)
             val dialog = builder.create()
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

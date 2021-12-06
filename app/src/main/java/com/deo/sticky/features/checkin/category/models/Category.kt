@@ -5,6 +5,10 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.deo.sticky.R
 
+/**
+ * 장소에서 시간을 사용하는 목적 카테고리
+ * 개인용 앱이므로 count는 체크인을 할 때마다 증가시키는 용도 (join 미사용)
+ */
 @Entity(tableName = "categories")
 data class Category(
     @PrimaryKey(autoGenerate = true)

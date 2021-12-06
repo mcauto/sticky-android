@@ -6,9 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Transaction
 
 interface DeleteAndUpsertDao<T> {
-    @Transaction
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upserts(vararg entities: T): List<Long>
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)

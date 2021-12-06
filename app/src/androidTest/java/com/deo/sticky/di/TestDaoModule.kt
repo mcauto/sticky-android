@@ -5,27 +5,30 @@ import com.deo.sticky.features.checkin.place.models.PlaceDao
 import com.deo.sticky.features.checkout.models.AccumulateDao
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
+import dagger.hilt.testing.TestInstallIn
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ViewModelComponent::class)
-object DaoModule {
+@TestInstallIn(
+    components = [SingletonComponent::class],
+    replaces = [DaoModule::class]
+)
+object TestDaoModule {
     @Provides
-    @ViewModelScoped
+    @Singleton
     fun providePlaceDao(
         database: StickyDatabase
     ): PlaceDao = database.getPlaceDao()
 
     @Provides
-    @ViewModelScoped
+    @Singleton
     fun provideCategoryDao(
         database: StickyDatabase
     ): CategoryDao = database.getCategoryDao()
 
     @Provides
-    @ViewModelScoped
+    @Singleton
     fun provideAccumulateDao(
         database: StickyDatabase
     ): AccumulateDao = database.getAccumulateDao()
